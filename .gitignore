@@ -1,0 +1,4 @@
+node_modules
+.env
+commands/moderation/clear.js
+commands/utility/profile.js
