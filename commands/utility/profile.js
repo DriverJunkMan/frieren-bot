@@ -10,7 +10,7 @@ module.exports = {
         // Create an embedded message for the profile
         const embed = new EmbedBuilder()
             .setColor('#55c0c8')
-            .setTitle(`${user.username}'s profile`)
+            .setTitle(`Displaying ${user.username}'s profile`)
             .setThumbnail(user.displayAvatarURL({ dynamic: true, size: 1024 }))
             .addFields(
                 { name: 'Username:', value: `${user.username}`, inline: false },
