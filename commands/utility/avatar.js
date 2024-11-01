@@ -27,12 +27,11 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'avatar',
-    description: 'Displays your avatar or another user\'s avatar.',
+    description: 'Displays the avatar of the selected user.',
     execute: async (interaction) => {
-        // Get user mention or use the command caller's user
+        
         const user = interaction.options.getUser('user') || interaction.user;
 
-        // Create an embedded message
         const embed = new EmbedBuilder()
             .setColor('#55c0c8') // Custom color
             .setDescription(`Showing ${user.username} avatar's`)

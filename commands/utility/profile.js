@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
     name: 'profile',
-    description: 'Displays your profile or another user\'s profile information.',
+    description: 'Displays a profile card of the selected user.',
     execute: async (interaction) => {
         const user = interaction.options.getUser('user') || interaction.user;
 
@@ -15,9 +15,9 @@ module.exports = {
             .addFields(
                 { name: 'Username:', value: `${user.username}`, inline: false },
                 { name: 'ID:', value: `${user.id}`, inline: false },
-                { name: 'Account Created:', value: `${user.createdAt.toDateString()}`, inline: false },
-                { name: 'Joined Server:', value: `${member.joinedAt.toDateString()}`, inline: false },
-                { name: 'Roles:', value: `${member.roles.cache.map(role => role.name).join(', ') || 'No roles given.'}`, inline: false }
+                { name: 'This account was created at:', value: `${user.createdAt.toDateString()}`, inline: false },
+                { name: 'Has joined this server at:', value: `${member.joinedAt.toDateString()}`, inline: false },
+                { name: 'Roles given:', value: `${member.roles.cache.map(role => role.name).join(', ') || 'No roles given.'}`, inline: false }
             )
             .setFooter({
                 text: `Requested by ${interaction.user.username}`,

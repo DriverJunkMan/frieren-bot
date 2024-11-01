@@ -1,2 +1,4 @@
 node_modules
 .env
+.commands/economy/daily.js
+.commands/general/ping.js

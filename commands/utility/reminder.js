@@ -34,7 +34,7 @@ module.exports = {
 
         // Send a confirmation message to the user
         interaction.reply({
-            content: `Reminder set! I'll remind you in ${time}.`,
+            content: `Reminder set! I'll remind you in **${time}**.`,
             ephemeral: true
         });
 
@@ -43,7 +43,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle('Reminder.')
                 .setDescription(reminderMessage)
-                .setColor('#ffcc00')
+                .setColor('#55c0c8')
                 .setFooter({
                     text: `Reminder set by ${interaction.user.tag}`,
                     iconURL: interaction.user.displayAvatarURL()
