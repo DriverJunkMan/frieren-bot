@@ -1,4 +1,4 @@
-const { Client, GatewayIntentBits, REST, Routes } = require('discord.js');
+const { Client, GatewayIntentBits, REST, Routes, ActivityType } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 // const { CognitiveServicesCredentials } = require('@azure/ms-rest-azure-js');
@@ -22,7 +22,6 @@ fs.readdirSync(commandsFolder).forEach((folder) => {
         if (file.endsWith('.js')) {
             const command = require(path.join(folderPath, file));
             client.commands.set(command.name, command);
-            // Push command's data to commandsArray for registration
             commands.push({
                 name: command.name,
                 description: command.description,
@@ -86,6 +85,10 @@ async function getUserLocale(guildId, userId) {
     const locale = member?.user?.locale || 'en'; // Default to 'en' if locale not found
     return locale.split('-')[0]; // Return the language code
 }*/
+client.once('ready', () => {
+    client.user.setActivity('/help', { type: ActivityType.Listening });
+    console.log('Bot is online.');
+});
 
 // Command handler with translation
 client.on('interactionCreate', async (interaction) => {
